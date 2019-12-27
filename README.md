@@ -1,14 +1,14 @@
 # **Interactive Sumerian Hosts using Voice based Feedback mechanism (****Alexa****)**
 
 **Purpose:**
-You will learn how simple and seamless it is to build an interactive and immersive Human-like Sumerian Hosts(without having to touch or press any button) on their AR/VR applications using Alexa. \
-
+You will learn how simple and seamless it is to build an interactive and immersive Human-like Sumerian Hosts(without having to touch or press any button) on their AR/VR applications using Alexa. 
+\
 **Introduction:**
-We are going to build a Sumerian host that answers your questions regarding AWS services, and uses TV to display videos about these services.  We can ask the host to display content on TV directly, or ask about any AWS service or interrupt the Host at any point of time while she is explaining about a topic and ask further questions. This makes the Host more human like and interactive as she can listen to you when interrupt her and take cross questions. \
+We are going to build a Sumerian host that answers your questions regarding AWS services, and uses TV to display videos about these services.  We can ask the host to display content on TV directly, or ask about any AWS service or interrupt the Host at any point of time while she is explaining about a topic and ask further questions. This makes the Host more human like and interactive as she can listen to you when interrupt her and take cross questions. 
 
 **Architecture**:
 ![Architecture](images/1arch.png)
-\
+
 We can use Alexa, making use of its NLP/NLU capabilities and integrate it further with Sumerian through Lambda and SQS/IoT/DynamoDB(DynamoDB in this context).
 Sumerian Scene keeps scanning the messages from DynamoDB and take the appropriate action based on the information it receives from Alexa skill through DynamoDB.
 It can take appropriate action in the scene like switching off TV, interrupting a HOST and so on.
@@ -24,34 +24,46 @@ For simplicity, let’s consider 2 simple actions:
 4. Lex Bot
 5. Sumerian Scene
 
-\
+
 **1. Creating an Alexa Skill:**
 
 Log into your alexa developer console ([_https://developer.amazon.com/alexa/console/ask_](https://developer.amazon.com/alexa/console/ask)) and click on create skill.  \
-Enter Skill name as “InteractiveSumerianHost” or any name as per your liking. \
-With all other options set to their default values, click on Create Skill. \
+Enter Skill name as “InteractiveSumerianHost” or any name as per your liking. 
+\
+With all other options set to their default values, click on Create Skill. 
+\
 ![Image](images/2.png)
-Choose “Start from scratch” option and click choose. This takes you to skills page. \
+Choose “Start from scratch” option and click choose. This takes you to skills page. 
+\
 ![Image](images/3.png)
 ![Image](images/4.png)
 In the Skill screen, on the left panel, you can notice Invocation option, click that and change the skill invocation name to something simple(we will use the name 'sumerian'). \ And click ‘Save Model’.
 ![Image](images/5.png)
-Choose ‘Slot Types’ on the left panel and create two slot types 1.action and 2.service. \
+Choose ‘Slot Types’ on the left panel and create two slot types 1.action and 2.service. 
+\
 To create, click on ‘+ Add’ button on Slot Types. Create custom slot type with name “action” and add slot values(‘display’, ‘show’, ‘pause’, ‘stop’) as per the image below:
 ![Image](images/6.png)
 And repeat same step to create the slot type “service”
-![Image](images/7.png) \
+![Image](images/7.png) 
+\
 Now choose Intents and click “Add Intent”.
-\ Create a new intent with the name “stop_sumerian_host” and add the slot type “action” on intent slots.
-\ Now add sample utterances. While creating an utterance, add the slot type to it where ever required(Eg: you can see that the utterance ‘*{action} the Sumerian host*’ have slot value action being added into it in a curly brackets).
-\ Then click the ‘+’ button on the right to sate it to the utterances list.
+\ 
+Create a new intent with the name “stop_sumerian_host” and add the slot type “action” on intent slots.
+\ 
+Now add sample utterances. While creating an utterance, add the slot type to it where ever required(Eg: you can see that the utterance ‘*{action} the Sumerian host*’ have slot value action being added into it in a curly brackets).
+ 
+Then click the ‘+’ button on the right to sate it to the utterances list.
 ![Image](images/8.png)
-\ Now add another intent “show_on_tv” as per the image below:
+\ 
+Now add another intent “show_on_tv” as per the image below:
 ![Image](images/9.png)
-\ Now select “Endpoint” tab in the left panel and choose AWS Lambda ARN and note “your skill id”. You will need to use it in Lambda function later.
-\ Note: You also need to copy the Lambda function ARN later (from Lambda console) and paste that under Default region in this screen.
+\ 
+Now select “Endpoint” tab in the left panel and choose AWS Lambda ARN and note “your skill id”. You will need to use it in Lambda function later.
+\ 
+Note: You also need to copy the Lambda function ARN later (from Lambda console) and paste that under Default region in this screen.
 
-\ Now save the model and build it. These options are available on the top of the screen. Then you can test the skill from Utterance Profiler.
+\ 
+Now save the model and build it. These options are available on the top of the screen. Then you can test the skill from Utterance Profiler.
 
 **2. Creating Lambda Functions:**
 
