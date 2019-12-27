@@ -1,11 +1,12 @@
-# **Interactive**** Sumerian Hosts using ****Voice based Feedback mechanism (****Alexa****)**
+# **Interactive Sumerian Hosts using Voice based Feedback mechanism (****Alexa****)**
 
 **Purpose of the code:**
 You will learn how simple and seamless it is to build an interactive and immersive Human-like Sumerian Hosts(without having to touch or press any button) on their AR/VR applications using Alexa.
 **Introduction:**
 We are going to build a Sumerian host that answers your questions regarding AWS services, and uses TV to display videos about these services.  We can ask the host to display content on TV directly, or ask about any AWS service or interrupt the Host at any point of time while she is explaining about a topic and ask further questions. This makes the Host more human like and interactive as she can listen to you when interrupt her and take cross questions.
+
 **Architecture**:
-[Image: /images/1arch.png] 
+[Image: images/1arch.png] 
 We can use Alexa, making use of its NLP/NLU capabilities and integrate it further with Sumerian through Lambda and SQS/IoT/DynamoDB(DynamoDB in this demo).
 Sumerian Scene keeps scanning the messages from DynamoDB and take the appropriate action based on the information it receives from Alexa skill through DynamoDB.
 It can take appropriate action in the scene like switching off TV, interrupting a HOST and so on.
@@ -22,10 +23,11 @@ For simplicity, let’s consider 2 simple actions:
 4. Lex Bot
 5. Sumerian Scene
 
+
 1. **Creating an Alexa Skill:**
 
 Log into your alexa developer console ([_https://developer.amazon.com/alexa/console/ask_](https://developer.amazon.com/alexa/console/ask)) and click on create skill.
-Enter Skill name as “InteractiveSumerianHost” or any name as per your liking.
+/n Enter Skill name as “InteractiveSumerianHost” or any name as per your liking.
 With all other options set to their default values, click on Create Skill.
 [Image: /images/2.png]
 Choose “Start from scratch” option and click choose. This takes you to skills page.
