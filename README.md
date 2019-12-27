@@ -38,12 +38,14 @@ Choose “Start from scratch” option and click choose. This takes you to skill
 
 ![Image](images/3.png)
 ![Image](images/4.png)
-In the Skill screen, on the left panel, you can notice Invocation option, click that and change the skill invocation name to something simple(we will use the name 'sumerian'). \ And click ‘Save Model’.
+In the Skill screen, on the left panel, you can notice Invocation option, click that and change the skill invocation name to something simple(we will use the name 'sumerian').  
+And click ‘Save Model’.
 ![Image](images/5.png)
-Choose ‘Slot Types’ on the left panel and create two slot types 1.action and 2.service. 
 
+Choose ‘Slot Types’ on the left panel and create two slot types 1.action and 2.service : 
 To create, click on ‘+ Add’ button on Slot Types. Create custom slot type with name “action” and add slot values(‘display’, ‘show’, ‘pause’, ‘stop’) as per the image below:
 ![Image](images/6.png)
+
 And repeat same step to create the slot type “service”
 ![Image](images/7.png) 
 
@@ -86,6 +88,7 @@ Code Snippet from **LambdaFunction1/skill.json**
 Replace the code in **index.js** to the code in **LambdaFunction1/index.js**
 
 Now Under Lambda Designer, click on + Add Trigger button. And choose Alexa Skills Kit and add the Skill ID that is noted in the last step while creating alexa skill.
+
 ![Image](images/13.png)
 
 Save your work and copy the ARN of this lambda function. Paste the ARN in the Alexa developer portal under Default region Endpoint and save it.
@@ -96,7 +99,7 @@ Now let’s create another Lambda Function to log Lex bot intents.
 
 Click Create Function and choose ‘Author from scratch’, Runtime as Node.js latest version, and give a logical Function name(Eg:LexLogLambda) and choose Create new role under permissions. Then click Create Function. 
 
-Don’t forget to give this new role permission to access DynamoDB (You can add this permission in AWS IAM for this role) .
+Don’t forget to give this new role permission to access DynamoDB (You can add this permission in AWS IAM for this role).
 
 Now add two Environment Variables([PRIMARY_KEY,LexLogId] and [TABLE_NAME,LexLog]) to the function as shown in the image below:
 ![Image](images/14.png)
@@ -150,19 +153,40 @@ Test if the bot is invoking the Lambda function to fetch the service data from D
 **5. Creating Sumerian Scene:**
 
 Download the zip file provided and keep it ready. (with Bundled zip file of the Scene)
+
 Log into Sumerian and click on Create Scene. Give it a name “SumerianDemo” and click Create.
+
 ![Image](images/22.png)
+
 Once the scene is loaded, click on ‘Import Assets’ and choose the downloaded zip file. As soon as the scene is uploaded, save it.
-Now, expand room_ViewRoom.fbx and select Maya TShirt. On the right hand side, expand Dialogue component and fill the Lex Bot details copied in previous step. Save the scene.
-On the left hand top corner, select ‘Tools’ and click ‘Text Editor’. A pop up opens up the files view. Click ‘Html3d Entity’ and edit it as per your choice. This is the code that represent the TV screen. Remove the button ‘This is HTML’ in this.
+
+Now, expand room_ViewRoom.fbx and select Maya TShirt. 
+On the right hand side, expand Dialogue component and fill the Lex Bot details copied in previous step. 
+Save the scene.
+
+On the left hand top corner, select ‘Tools’ and click ‘Text Editor’. A pop up opens up the files view. 
+Click ‘Html3d Entity’ and edit it as per your choice. This is the code that represent the TV screen. Remove the button ‘This is HTML’ in this.
+
 Now select script and start editing it as required to control the behavior of voice inputs from the users.
-**Note: **
+
+**Note:**
 On the Host, the final State Machine would look like:
+
 ![Image](images/23.png)
-Testing the Scene:
-Your host is ready to be tested. Play the scene. You will likely be prompted to allow Sumerian to use your microphone. With the scene in play mode, press the spacebar and use the correct utterance to initiate the chatbot. Respond to Cristine’s questions with phrases that are registered for the given slots. If you used a sample Lex bot, be sure to look at the library of responses that register with the bot in use.
+
+**Testing the Scene:**
+
+Your host is ready to be tested. Play the scene. You will likely be prompted to allow Sumerian to use your microphone. 
+
+With the scene in play mode, press the spacebar and use the correct utterance to initiate the chatbot. 
+Respond to Cristine’s questions with phrases that are registered for the given slots. 
+If you used a sample Lex bot, be sure to look at the library of responses that register with the bot in use.
+
+
 **Summary:**
+
 This demo is just to showcase the art of possibility, readers can further build such solution to interact with the hosts or characters in the scene and interrupt them as needed using Amazon Alexa with Sumerian. These solutions can also let Host control the objects and their state in a scene just by interacting with it.
+
 With voice based feedback mechanism, readers can build a conversational interface for their Host that allows hosts to understand and respond to users’ speech and actions. It has huge potential in creating interactive, engaging live experiences and delight the consumers.
 
 
