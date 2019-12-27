@@ -1,0 +1,34 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Sample Short Description",
+          "examplePhrases": [
+            "Alexa stop the host",
+            "Alexa ask bala to stop",
+            "wait",
+            "stop"
+          ],
+          "name": "sumerian host",
+          "description": "Sample Full Description"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "Custom",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom",
+          "uri": "stop_sumerian_host"
+        }
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}
+
+
