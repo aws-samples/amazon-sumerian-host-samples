@@ -177,9 +177,10 @@ On the Host, the final State Machine would look like:
 **Testing the Scene:**
 
 Your host is ready to be tested. Play the scene. You will likely be prompted to allow Sumerian to use your microphone. 
-
-With the scene in play mode, press the spacebar and use the correct utterance to initiate the chatbot. 
+\ With the scene in play mode, press the spacebar and use the correct utterance to initiate the chatbot. 
+	
 Respond to Cristine’s questions with phrases that are registered for the given slots. 
+
 If you used a sample Lex bot, be sure to look at the library of responses that register with the bot in use.
 
 
