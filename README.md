@@ -5,7 +5,7 @@ You will learn how simple and seamless it is to build an interactive and immersi
 
 
 **Introduction:**
-We are going to build a Sumerian host that answers your questions regarding AWS services, and uses TV to display videos about these services.  We can ask the host to display content on TV directly, or ask about any AWS service or interrupt the Host at any point of time while she is explaining about a topic and ask further questions. This makes the Host more human like and interactive as she can listen to you when interrupted and take cross questions. 
+We are going to build a Sumerian Scene with a Host that answers your questions regarding AWS services, and uses TV to display videos about these services.  We can ask the host to display content on TV directly, or ask about any AWS service or interrupt the Host at any point of time while she is explaining about a topic and ask further questions. This makes the Host more human like and interactive as she can listen to you when interrupted and take cross questions. 
 
 **Architecture**:
 ![Architecture](images/1arch.png)
@@ -19,7 +19,7 @@ For simplicity, let’s consider 2 simple actions:
 
 **Steps:**
 
-1. Alexa Skill has to be built that can integrate with Lambda and push the user’s voice inputs.
+1. Alexa Skill to be built that can integrate with Lambda and push the user’s voice inputs.
 2. Lambda functions to take appropriate actions as per the user’s voice inputs. One function for Persisting the input data on to Dynamo DB. Another to let Lex bot read data from Dynamo DB.
 3. Two Dynamo DB tables to persist transactional(user inputs) and QnA data
 4. Lex Bot
