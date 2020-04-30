@@ -7,13 +7,13 @@
   "author": "Bala Ravilla",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": ">=0.18.1"
   },
   "scripts": {
     "test": "mocha tests/unit/"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^5.1.1"
+    "chai": ">=4.1.2",
+    "mocha": ">=5.1.1"
   }
 }
