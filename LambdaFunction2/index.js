@@ -1,6 +1,6 @@
 'use strict';
 const aws = require('aws-sdk');
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuidv4');
 const dynamodb = new aws.DynamoDB();
 const tableName = process.env.TABLE_NAME;
 const primaryKey = process.env.PRIMARY_KEY;
@@ -81,7 +81,7 @@ function logIntent(event, callback) {
             "requestAttributes": event.requestAttributes,
             "sessionAttributes": event.sessionAttributes
         };
-        item[primaryKey] = uuidv4();
+        item[primaryKey] = uuidv4.uuid();
 
         console.log('intent name =======>'+event.currentIntent.name);
         console.log('servicename=======>'+event.currentIntent.slots.servicename);
